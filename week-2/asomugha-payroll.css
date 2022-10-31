@@ -1,0 +1,12 @@
+/*
+    Title: asomugha-payroll.css
+    Author: Professor Krasso
+    Date: 30 October 2022
+    Modified By: Anachebe Asomugha
+    Description: HTML code for WEB 231 Exercise 2.2
+*/
+
+/* Red-dotted 1 pixel border for unordered lists */
+ul {
+    border: 1px dotted red;
+}

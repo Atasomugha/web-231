@@ -1,21 +1,24 @@
 /**
     Title: site.css
     Author: Professor Krasso
-    Date: 22/10/2022
+    Date: 30 October 2022
     Modified By: Anachebe Asomugha
     Description: CSS styling for WEB 231 Landing page
 */    
 
+/* Font family for body section is here.*/
 body {
     font-family: 'Oswald', Verdana, Arial, sans-serif;
 }
 
+/* Styling for container div is here*/
 #container {
     margin-top: 50px;
     margin-left: 100px;
     margin-right: 100px;
 }
 
+/* Common styling for h1, h2, h3, and h4 headings are here */
 h1, h2, h3, h4 {
     background-color: #3C275A;
     color: white;
@@ -23,6 +26,12 @@ h1, h2, h3, h4 {
     padding: 10px;
 }
 
+/* This places "Payrol Systems" text in center of the header */
+#payroll-header {
+    text-align: center;
+}
+
+/* Anchor tag styling is here */
 a {
     color: #453674;
     text-decoration: none;
@@ -36,3 +45,4 @@ a:hover {
 a:visited {
     color: #3C275A;
 }
+
