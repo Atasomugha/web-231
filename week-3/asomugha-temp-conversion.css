@@ -1,0 +1,49 @@
+/*
+    Title: asomugha-temp-conversion.css
+    Author: Anachebe Asomugha
+    Date: 3 November 2022
+    Description: CSS code for WEB 231 Assignment 3.2
+*/
+
+/*The font family for the assignment is here*/
+body {
+    font-family: 'Oswald', Verdana, Arial, sans-serif;
+}
+/*The container div's padding is here*/
+#container {
+    padding: 10px;
+}
+/* The heading text is styled here*/
+.app-header {
+    text-align: center;
+    font-weight: 400;
+}
+
+/*This is the font size sytling for the conversion results*/
+output {
+    font-size: 28px;
+}
+
+/*This is where the cards' sizes and margins were set to be specific to this assignment*/
+#fahrCard {
+    width: 600px;
+    margin: 3% auto;  
+}
+
+#resultsCard {
+    width: 600px;
+    margin: 3% auto;
+    text-align: center;
+}
+
+/*This is the border styling for the "Convert Temperature" button*/
+#btnSubmit {
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+/*The return link's positioning was styled here*/
+ #return {
+    position: absolute;
+    left: 340px;
+ }
