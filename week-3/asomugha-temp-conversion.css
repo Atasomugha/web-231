@@ -1,8 +1,9 @@
 /*
     Title: asomugha-temp-conversion.css
     Author: Anachebe Asomugha
-    Date: 3 November 2022
-    Description: CSS code for WEB 231 Assignment 3.2
+    Date: 6 November 2022
+    Description: CSS code for WEB 231 Assignment 3.2 - 
+                 Styling for Fahrenheit-to-Celcius Converter
 */
 
 /*The font family for the assignment is here*/
@@ -19,7 +20,7 @@ body {
     font-weight: 400;
 }
 
-/*This is the font size sytling for the conversion results*/
+/*This is the font size styling for the conversion results*/
 output {
     font-size: 28px;
 }
