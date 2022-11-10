@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+    Title: asomugha-number-game.html
+    Author: Professor Krasso
+    Date: 10 November 2022
+    Modified By: Anachebe Asomugha
+    Description: HTML and JavaScript code for WEB 231 Assignment 4.2
+                 Number Guessing Game
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <!--CSS Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="asomugha-number-game.css">
+    <link rel="stylesheet" type="text/css" href="../global.css">
+        <!--Font Family-->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+
+    <title>WEB 231 – Enterprise JavaScript I</title>
+</head>
+<body>
+    
+    <header>
+        <h1 class="app-header">Welcome to the Numbers Game!</h1>
+    </header>
+<!--This is the card that houses the "player's guess" input field-->
+<div id="container">
+    <div id="guessCard">
+        <div class="card">
+            <div class="card-title">
+                Pick A Number Between 1 And 10
+            </div>    
+        
+            <div class="card-content">
+                <div class="form">
+                    <div class="form-field">
+                        <label for="txtMyNumber">Guess The Number:</label>
+                        <input type="number" id="txtMyNumber" name="txtMyNumber" class="input">
+                    </div>
+
+                    <div class="form-field">
+                        <button  id="btnSubmit" onclick="gameResults()" type="submit" class="btn btn-primary full-width">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+    
+     <!--This is the card that displays the game results-->
+    <div id="resultsCard">     
+        <div class="card">
+            <div class="card-title">
+                Results
+            </div>    
+        
+            <div class="card-content">
+                <div class="form">
+                    <div class="form-field">
+                        <output id="gameAnswer" name="gameAnswer"></output>
+                    </div>                    
+                </div>
+            </div>        
+        </div>            
+    </div>    
+
+        <!--This anchor returns to the landing page-->   
+    <a class="return-home" id="return" href="../index.html">Return</a>                                                                                     
+</div>   
+
+<script>
+    
+    const rnd = Math.floor((Math.random() * 10) + 1); //This line selects a random integer from 1 to 10
+          document.getElementById("btnSubmit").onclick; //This is the event listener for the submit button
+    function gameResults() { 
+
+        let myNumber = document.getElementById("txtMyNumber").value; //This line grabs value of the number entered by the user
+
+        // These statements set the location and determine the output results depending on the random integer versus the user-entered number 
+        if (rnd > myNumber) {
+          document.getElementById("gameAnswer").innerHTML = "The number is greater than " + myNumber + " ";
+        } 
+        else if (rnd < myNumber) {
+            document.getElementById("gameAnswer").innerHTML = "The number is less than " + myNumber + " ";
+        } 
+        else {
+            document.getElementById("gameAnswer").innerHTML = "Congratulations! You picked the correct number!";}  
+    }
+
+</script>
+
+</body>
+</html>
+
