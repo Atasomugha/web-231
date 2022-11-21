@@ -38,10 +38,10 @@
                         <label for="sequence">Choose a number sequence:</label>
 
                         <select name="sequence" id="sequence" value="sequence" class="drop-down-menu"> <!-- Drop down menu  for selection of sequence type-->
-                            <option id="select" value="select">--Select--</option>
-                            <option id="fibonacci" value="fibonacci">Fibonacci Sequence</option>
-                            <option id="even" value="even">Even Numbers</option>
-                            <option id="odd" value="odd">Odd Numbers</option>
+                            <option  value="select">--Select--</option>
+                            <option  value="fibonacci">Fibonacci Sequence</option>
+                            <option  value="even">Even Numbers</option>
+                            <option value="odd">Odd Numbers</option>
                           </select>
                     </div>
 
@@ -75,37 +75,41 @@
 </div>   
 
 <script>
-    document.getElementById('btnDisplaySequence').onclick; // Event listener for "Display Sequence" button click      
+document.getElementById('btnDisplaySequence').onclick; // Event listener for "Display Sequence" button click      
 
 function sequenceResults() {
     const choice = document.getElementById('sequence').value; // Gets the value of the selected option from the <select> tag
+    
     if (choice == 'fibonacci') { // If statement for "Fibonacci Sequence" option
-    let num1 = 0 , num2 = 1; // Declaring variables "num1, num2, and next"
-    next = num1 + num2;
-    let fibonacciSequenceText = ""; // Setting variable for building the fibonacci sequence result string
+      let num1 = 0 , num2 = 1, next; // Declaring variables "num1, num2, and next"
+      fibonacciSequenceText = ""; // Setting variable for building the fibonacci sequence result string
+      next = num1 + num2  
         while (num1 < 40) { 
             fibonacciSequenceText += num1 + ", "; // Begins the process of printing the fibonacci sequence
-            let next;
-            let num1 = num2;
-            let num2 = next;
-            fibonacciSequenceText.slice(0, -2); 
+            num1 = num2;
+            num2 = next;
+            next = num1 + num2} 
         
-    document.getElementById('sequenceAnswer').innerHTML = fibonacciSequenceText;} // Should print the fibonacci sequence on Result Card
-}else if (choice == 'even') { // Statement for selection of "Even" option
-    let num1 = 2; //Declaring num1 variable
-    let evenSequenceText = ""; // Setting variable for building the Even Sequence result string
+      document.getElementById('sequenceAnswer').innerHTML = fibonacciSequenceText.slice(0, -2); // Should print the fibonacci sequence on Result Card   
+   
+    }else if (choice == 'even') { // Statement for selection of "Even" option
+      let evenSequenceText = "";// Setting variable for building the Even Sequence result string
+      let num1 = 2; //Declaring num1 variable
+        
         do { // Sets the task to take place
-            document.write(num1 + ", ");
-            num1 += 2;
-        }
-        while (num1 < 20){ // Sets the circumstances of the task
-          document.getElementById('sequenceAnswer').innerHTML = evenSequenceText.slice(0, -2) } // Should print the even sequence on Result Card    
+            evenSequenceText += num1 + ", ";
+            num1 += 2;}
+
+        while (num1 < 20); // Sets the circumstances of the task
+          
+      document.getElementById('sequenceAnswer').innerHTML = evenSequenceText.slice(0, -2);  // Should print the even sequence on Result Card    
 
 }else if (choice == 'odd') {
     let oddSequenceText = "";
-        for (let num1 = 1; num1 += 2; num1 < 20){
-        document.write( num1 + ", ");
-    document.getElementById('sequenceAnswer').innerHTML = oddSequenceText.slice(0, -2) }  // Should print the odd sequence on Result Card  
+        for (let num1 = 1; num1 < 20; num1 += 2){
+            oddSequenceText += num1 + ", ";}
+            
+    document.getElementById('sequenceAnswer').innerHTML = oddSequenceText.slice(0, -2);   // Should print the odd sequence on Result Card  
 
 }else {
     alert ('Invalid selection, please try again!'); //Prints window alert for "--Select--" option
