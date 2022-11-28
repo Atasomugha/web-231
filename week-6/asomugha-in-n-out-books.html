@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!--
+    Title: asomugha-in-n-out-books.html
+    Author: Professor Krasso
+    Date: 27 November 2022
+    Modified By: Anachebe Asomugha
+    Description: HTML and JavaScript code for WEB 231 Assignment 6.2
+                 In-n-Out-Books
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <!--CSS Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="asomugha-in-n-out-books.css">
+    <link rel="stylesheet" type="text/css" href="../global.css">
+        <!--Font Family-->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+
+    <title>WEB 231 – Enterprise JavaScript I</title>
+</head>
+<body>
+    
+    <header>
+        <h1 class="app-header">Welcome to In-N-Out-Books!</h1>
+    </header>
+<!--This is the card that houses the selection field-->
+<div id="container">
+    <div id="selectCard">
+        <div class="card">
+            <div class="card-title">
+                My Favorites
+            </div>    
+        
+            <div class="card-content"> 
+                <div class="form">
+                    <div class="form-field">
+                        <label for="favoriteList">Choose a listing:</label>
+
+                        <select name="favoriteList" id="favoriteList" class="drop-down-menu"> <!-- Drop down menu for selection field-->
+                            <option  value="select">--Select--</option>
+                            <option  value="books">Top 3 Favorite Books</option>
+                            <option  value="authors">Top 3 Favorite Authors</option>
+                          </select>
+                    </div>
+
+                    <div class="form-field"> <!--Display Listing Button-->
+                        <button  id="btnDisplayListing" onclick="listingDisplay()" type="submit" class="btn btn-primary full-width">Display Listing</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+    
+     <!--This is the card that displays the book table-->
+    <div id="favorite-books">     
+        <div class="card">    
+            <div class="card-title">
+                    Top 3 Favorite Books
+            </div>
+            <div class="card-content">
+                <table id="books">
+                    <tr>           <!--Book Headings Row-->
+                        <th id="txtBookIsbn"></th>
+                        <th id="txtBookTitle"></th>
+                        <th id="txtBookPages"></th>
+                    </tr>
+                    
+                    <tr>            <!--Otherlife Information Row-->
+                        <td id="txtOtherlifeIsbn"></td>
+                        <td id="txtOtherlifeTitle"></td>
+                        <td id="txtOtherlifePages"></td>
+                    </tr>
+
+                    <tr>            <!--He Who Fights With Monsters Information Row-->
+                        <td id="txtHwfwmIsbn"></td>
+                        <td id="txtHwfwmTitle"></td>
+                        <td id="txtHwfwmPages"></td>
+                    </tr>
+
+                    <tr>            <!--Eragon Information Row-->
+                        <td id="txtEragonIsbn"></td>
+                        <td id="txtEragonTitle"></td>
+                        <td id="txtEragonPages"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>      
+    </div>
+    
+     <!--This is the card that displays the author table-->
+
+    <div id="favorite-authors">     
+        <div class="card">    
+            <div class="card-title">
+                    Top 3 Favorite Authors
+            </div>
+            <div class="card-content">
+                <table id="authors">
+                    <tr>       <!--Author Headings Row-->
+                        <th id="txtAuthorName"></th>
+                        <th id="txtAuthorGenre"></th>
+                    </tr>
+
+                    <tr>        <!--Arand Information Row -->
+                        <td id="txtArandName"></td>
+                        <td id="txtArandGenre"></td>
+                    </tr>
+
+                    <tr>        <!--Deverell Information Row-->
+                        <td id="txtDeverellName"></td>
+                        <td id="txtDeverellGenre"></td>
+                    </tr>
+
+                    <tr>        <!--Paolini Information Row-->
+                        <td id="txtPaoliniName"></td>
+                        <td id="txtPaoliniGenre"></td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>      
+    </div>
+
+        <!--This anchor returns to the landing page-->   
+    <a class="return-home" id="return" href="../index.html">Return</a>                                                                                     
+</div>   
+
+<script>
+    // Object Creation (Books)
+const bookHeadings = {isbn:"ISBN", title:"Title", pages:"Pages"};
+const otherlife = {isbn: "9781521586570", title: "Otherlife: The Selfless Hero", pages: "732"};
+const hwfwm = {isbn: "9789798712814", title: "He Who Fights With Monsters", pages: "678"};
+const eragon = {isbn: "9780375826689", title: "Eragon: The Inheritance Cycle", pages: "528"};
+
+    // Object Creation (Authors)
+const authorHeadings = {name:"Name", genre:"Genre"};
+const arand = {name:"William D. Arand", genre: "LitRPG, Fantasy, Science Fiction"};
+const deverell = {name:"Travis Deverell", genre: "LitRPG, Fantasy"};
+const paolini = {name:"Christopher Paolini", genre: "Fantasy, Science Fiction"};
+    
+    // Variable Assignment for Table Divs
+const books = document.getElementById("favorite-books");
+const authors = document.getElementById("favorite-authors");
+    
+// Hides tables upon loading of page
+books.style.display = "none";
+authors.style.display = "none";
+
+
+
+document.getElementById('btnDisplayListing').onclick; // Event listener for "Display Listing" button click
+
+
+function listingDisplay() {
+const choice = document.getElementById('favoriteList').value; // Gets the value of the selected option from the <select> tag
+
+
+
+
+
+    if (choice == "books") {
+      // Displays Book Table  
+      books.style.display = "block"; 
+      authors.style.display = "none";
+
+
+      // Bind Book Table Headings
+      document.getElementById("txtBookIsbn").innerHTML = bookHeadings.isbn;
+      document.getElementById("txtBookTitle").innerHTML = bookHeadings.title;
+      document.getElementById("txtBookPages").innerHTML = bookHeadings.pages;
+
+      // Bind Otherlife Properties
+      document.getElementById("txtOtherlifeIsbn").innerHTML = otherlife.isbn;
+      document.getElementById("txtOtherlifeTitle").innerHTML = otherlife.title;
+      document.getElementById("txtOtherlifePages").innerHTML = otherlife.pages;
+
+      // Bind He Who Fights With Monsters Properties
+      document.getElementById("txtHwfwmIsbn").innerHTML = hwfwm.isbn;
+      document.getElementById("txtHwfwmTitle").innerHTML = hwfwm.title;
+      document.getElementById("txtHwfwmPages").innerHTML = hwfwm.pages;
+
+      // Bind Eragon Properties
+      document.getElementById("txtEragonIsbn").innerHTML = eragon.isbn;
+      document.getElementById("txtEragonTitle").innerHTML = eragon.title;
+      document.getElementById("txtEragonPages").innerHTML = eragon.pages;
+
+    }else if (choice == "authors") {
+      books.style.display = "none"; 
+      authors.style.display = "block";
+
+      // Bind Author Table Headings
+      document.getElementById('txtAuthorName').innerHTML = authorHeadings.name;
+      document.getElementById("txtAuthorGenre").innerHTML = authorHeadings.genre;
+
+      //Bind Arand Properties
+      document.getElementById("txtArandName").innerHTML = arand.name;
+      document.getElementById("txtArandGenre").innerHTML = arand.genre;
+
+      //Bind Deverell Properties
+      document.getElementById("txtDeverellName").innerHTML = deverell.name;
+      document.getElementById("txtDeverellGenre").innerHTML = deverell.genre;
+
+      // Bind Paolini Properties
+      document.getElementById("txtPaoliniName").innerHTML = paolini.name;
+      document.getElementById("txtPaoliniGenre").innerHTML = paolini.genre;   
+
+    }else { //Hides Book and Author Tables When Neither Are Selected 
+      books.style.display = "none";
+      authors.style.display = "none";
+    }
+}
+
+
+
+</script>
+
+</body>
+</html>
+
