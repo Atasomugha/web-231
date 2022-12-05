@@ -32,14 +32,6 @@ output {
     margin: 3% auto;  
 }
 
-#product, #service, #employee {
-    width: 600px;
-    margin: 3% auto;
-    text-align: center;
-}
-
-
-
 /*This is the border styling for the "Submit" button*/
 #btnSubmit {
     border: 2px solid black;
@@ -52,7 +44,12 @@ output {
     left: 340px;
  }
 
- /* New additions for table styling - CHECK THESE - */
+/* Styling for the divs containing the tables and the information inside*/
+#product, #service, #employee {
+    width: 600px;
+    margin: 3% auto;
+    text-align: center;
+}
 
  #productTable, #serviceTable, #employeeTable {
     border-collapse: collapse;
@@ -61,8 +58,6 @@ output {
     text-align: left;
     color: black;
 }
-
-
 
 #productTable th, #serviceTable th, #employeeTable th {
     padding-top: 12px;

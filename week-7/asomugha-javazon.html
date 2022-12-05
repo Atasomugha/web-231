@@ -96,7 +96,7 @@
                         <td id="txtCalphalonTotalValue"></td>
                     </tr>
 
-                    <tr> <!-- Mr Coffee Row -->
+                    <tr> <!-- Mr. Coffee Row -->
                         <td id="txtMrCoffeeId"></td>
                         <td id="txtMrCoffeeDecription"></td>
                         <td id="txtMrCoffeePrice"></td>
@@ -269,6 +269,7 @@ const product = document.getElementById("product");
 const service = document.getElementById("service");
 const employee = document.getElementById("employee");
 
+// Hides All Tables
 product.style.display = "none";
 service.style.display = "none";
 employee.style.display = "none";
@@ -359,28 +360,23 @@ document.getElementById("txtMorganSalary").innerHTML= morgan.salary;
 
 function listingDisplay() {
     switch (choice) {
-        case choice === "products": // Displays Products Table
+        case "products": // Displays Products Table
               product.style.display = "block";
               service.style.display = "none";
               employee.style.display = "none";
               break;
 
-        
-        case choice === "services":    // Displays Services Table   
+        case "services": // Displays Services Table   
               product.style.display = "none";
               service.style.display = "block";
               employee.style.display = "none";
               break;
 
-           
-
-        case choice === "employees": // Displays Employees Table
+        case "employees": // Displays Employees Table
               product.style.display = "none";
               service.style.display = "none";
               employee.style.display = "block";
               break;
-
-             
 
         default: // Hides All Tables
             product.style.display = "none";
