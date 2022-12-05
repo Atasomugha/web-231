@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!--
+    Title: asomugha-javazon.css
+    Author: Professor Krasso
+    Date: 5 December 2022
+    Modified By: Anachebe Asomugha
+    Description: HTML and JavaScript code for WEB 231 Assignment 7.2
+                 Javazon
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <!--CSS Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="../global.css">    
+    <link rel="stylesheet" type="text/css" href="asomugha-javazon.css">
+        <!--Font Family-->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <title>WEB 231 – Enterprise JavaScript I</title>
+</head>
+<body>
+    
+    <header>
+        <h1 class="app-header">Welcome to the Javazon App!</h1>
+    </header>
+<!--This is the card that houses the selection field-->
+<div id="container">
+    <div id="selectCard">
+        <div class="card">
+            <div class="card-title">
+                Javazon Selection Form
+            </div>    
+        
+            <div class="card-content"> 
+                <div class="form">
+                    <div class="form-field">
+                        <label for="listing">Choose a listing:</label>
+
+                        <select name="listing" id="listing" class="drop-down-menu"> <!-- Drop down menu for selection of table -->
+                            <option  value="select">--Select--</option>
+                            <option  value="products">Products</option>
+                            <option  value="services">Services</option>
+                            <option  value="employees">Employees</option>
+                          </select>
+   
+                    </div>
+
+                    <div class="form-field">
+                        <button  id="btnDisplayListing" onclick="listingDisplay()" type="submit" class="btn btn-primary full-width">Display Listing</button>
+                    </div>
+                                              
+                </div>
+            </div>
+        </div>
+         <!--This anchor returns to the landing page-->   
+                        <a class="return-home" id="return" href="../index.html">Return</a>       
+    </div>   
+    
+     <!--This is the card that displays the products table-->
+    <div id="product">     
+        <div class="card">    
+            <div class="card-title">
+                    Javazon Products
+            </div>
+            <div class="card-content">
+                <table id="productTable">
+                    <tr> <!-- Products Table Headings Row -->
+                        <th id="txtProductId"></th>
+                        <th id="txtProductDescription"></th>
+                        <th id="txtProductPrice"></th>
+                        <th id="txtProductQuantity"></th>
+                        <th id="txtProductTotalValue"></th>
+                    </tr>
+                    
+                    <tr> <!-- Breville Row -->
+                        <td id="txtBrevilleId"></td>
+                        <td id="txtBrevilleDescription"></td>
+                        <td id="txtBrevillePrice"></td>
+                        <td id="txtBrevilleQuantity"></td>
+                        <td id="txtBrevilleTotalValue"></td>
+                    </tr>
+
+                    <tr> <!-- DeLonghi Row -->
+                        <td id="txtDeLonghiId"></td>
+                        <td id="txtDeLonghiDescription"></td>
+                        <td id="txtDeLonghiPrice"></td>
+                        <td id="txtDeLonghiQuantity"></td>
+                        <td id="txtDeLonghiTotalValue"></td>
+                    </tr>
+
+                    <tr> <!-- Calphalon Row -->
+                        <td id="txtCalphalonId"></td>
+                        <td id="txtCalphalonDescription"></td>
+                        <td id="txtCalphalonPrice"></td>
+                        <td id="txtCalphalonQuantity"></td>
+                        <td id="txtCalphalonTotalValue"></td>
+                    </tr>
+
+                    <tr> <!-- Mr Coffee Row -->
+                        <td id="txtMrCoffeeId"></td>
+                        <td id="txtMrCoffeeDecription"></td>
+                        <td id="txtMrCoffeePrice"></td>
+                        <td id="txtMrCoffeeQuantity"></td>
+                        <td id="txtMrCoffeeTotalValue"></td>
+                    </tr>
+
+                    <tr> <!-- Sincreative Row -->
+                        <td id="txtSincreativeId"></td>
+                        <td id="txtSincreativeDescription"></td>
+                        <td id="txtSincreativePrice"></td>
+                        <td id="txtSincreativeQuantity"></td>
+                        <td id="txtSincreativeTotalValue"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>      
+    </div>
+    
+     <!--This is the card that displays the services table-->
+
+    <div id="service">     
+        <div class="card">    
+            <div class="card-title">
+                   Javazon Services
+            </div>
+            <div class="card-content">
+                <table id="serviceTable">
+                    <tr> <!-- Services Table Headings Row -->
+                        <th id="txtServiceId"></th>
+                        <th id="txtServiceDescription"></th>
+                        <th id="txtServiceRate"></th>
+                        <th id="txtServiceMin"></th>
+                    </tr>
+
+                    <tr> <!-- Roasting Class Row -->
+                        <td id="txtRoastingClassId"></td>
+                        <td id="txtRoastingClassDescription"></td>
+                        <td id="txtRoastingClassRate"></td>
+                        <td id="txtRoastingClassMin"></td>
+                    </tr>
+
+                    <tr> <!-- Barista Training Row -->
+                        <td id="txtBaristaTrainingId"></td>
+                        <td id="txtBaristaTrainingDescription"></td>
+                        <td id="txtBaristaTrainingRate"></td>
+                        <td id="txtBaristaTrainingMin"></td>
+                    </tr> 
+                    
+                    <tr> <!-- Coffee Shop Ownership Class Row -->
+                        <td id="txtOwnershipId"></td>
+                        <td id="txtOwnershipDescription"></td>
+                        <td id="txtOwnershipRate"></td>
+                        <td id="txtOwnershipMin"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>      
+    </div>
+
+     <!--This is the card that displays the employees table-->
+
+    <div id="employee">     
+        <div class="card">    
+            <div class="card-title">
+                   Javazon Employees
+            </div>
+            <div class="card-content">
+                <table id="employeeTable">
+                    <tr> <!-- Employees Table Headings Row -->
+                        <th id="txtEmployeeId"></th>
+                        <th id="txtEmployeeLastName"></th>
+                        <th id="txtEmployeeFirstName"></th>
+                        <th id="txtEmployeeSalary"></th>
+                    </tr>
+
+                    <tr> <!-- Kyle Rampage Row -->
+                        <td id="txtKyleId"></td>
+                        <td id="txtKyleLastName"></td>
+                        <td id="txtKyleFirstName"></td>
+                        <td id="txtKyleSalary"></td>
+                    </tr>
+
+                    <tr> <!-- Cole McBold Row -->
+                        <td id="txtColeId"></td>
+                        <td id="txtColeLastName"></td>
+                        <td id="txtColeFirstName"></td>
+                        <td id="txtColeSalary"></td>
+                    </tr> 
+
+                    <tr> <!-- Damantha Killman Row -->
+                        <td id="txtDamanthaId"></td>
+                        <td id="txtDamanthaLastName"></td>
+                        <td id="txtDamanthaFirstName"></td>
+                        <td id="txtDamanthaSalary"></td>
+                    </tr> 
+
+                    <tr> <!-- Andrea Coffin Row -->
+                        <td id="txtAndreaId"></td>
+                        <td id="txtAndreaLastName"></td>
+                        <td id="txtAndreaFirstName"></td>
+                        <td id="txtAndreaSalary"></td>
+                    </tr>
+
+                    <tr> <!-- Morgan Fork Row -->
+                        <td id="txtMorganId"></td>
+                        <td id="txtMorganLastName"></td>
+                        <td id="txtMorganFirstName"></td>
+                        <td id="txtMorganSalary"></td>
+                    </tr>                    
+                </table>
+            </div>
+        </div>      
+    </div>
+                                                                                  
+</div>   
+
+<script>
+    // Creation of classes
+class Products {
+  constructor(id, description, price, quantity) {
+    this.id = id;
+    this.description = description;
+    this.price = price;
+    this.quantity = quantity;
+    this.totalValue = price * quantity;
+  }
+}
+
+class Services {
+    constructor(id, description, hourlyRate, hours) {
+      this.id = id;
+      this.description = description;
+      this.hourlyRate = hourlyRate;
+      this.min = min;
+    }
+}
+
+class Employees {
+    constructor (id, lastName, firstName, salary) {
+      this.id = id;
+      this.lastName = lastName;
+      this.firstName = firstName;
+      this.salary = salary;
+    }
+}
+
+
+//Creation of "Products" Objects
+const breville = new Products ("B00D54767K", "Breville Barista Express Espresso Machine", 599.95, 12);
+const deLonghi = new Products ("B00YCP71VK", "De'Longhi Bar Pump Espresso and Cappuccino Machine", 144.95, 3);
+const calphalon = new Products ("B07STXCNXW", "Calphalon Temp iQ Espresso Machine", 349.99, 5);
+const mrCoffee = new Products ("B007K9OIMU", "Mr. Coffee Cafe Barista Espresso and Cappuccino Machine", 194.99, 9);
+const sincreative = new Products ("B09XWG787W", "Sincreative All-In-One Espresso Machine", 479.98, 10);
+
+//Creation of "Services" Objects
+const roasting = new Services (101, "Coffee Roasting Class", 57.14, 14);
+const training = new Services (201, "Barista Training Class", 31.25, 16);
+const ownership = new Services (301, "Coffee Shop Ownership Class", 16.67, 24);
+
+//Creation of "Employees" Objects
+const kyle = new Employees (1700, "Rampage", "Kyle", 15.41);
+const cole = new Employees (1800, "McBold", "Cole", 16.57);
+const damantha = new Employees (1900, "Killman", "Damantha", 23.82);
+const andrea = new Employees (2000, "Coffin", "Andrea", 16.96);
+const morgan = new Employees (2100, "Fork", "Morgan", 22.25);
+
+// Variable Assignment for Table divs
+const product = document.getElementById("product");
+const service = document.getElementById("service");
+const employee = document.getElementById("employee");
+
+product.style.display = "none";
+service.style.display = "none";
+employee.style.display = "none";
+ 
+
+
+document.getElementById('btnDisplayListing').onclick; // Event listener for "Display Listing" button click
+
+
+
+const choice = document.getElementById('listing').value; // Gets the value of the selected option from the <select> tag
+
+// Binding Products to Products Table    
+document.getElementById("txtProductId").innerHTML= "Product ID";
+document.getElementById("txtProductDescription").innerHTML= "Description"; 
+document.getElementById("txtProductPrice").innerHTML= "Price";
+document.getElementById("txtProductQuantity").innerHTML= "Quantity";
+document.getElementById("txtProductTotalValue").innerHTML= "Total Value";
+document.getElementById("txtBrevilleId").innerHTML= breville.id;
+document.getElementById("txtBrevilleDescription").innerHTML= breville.description;
+document.getElementById("txtBrevillePrice").innerHTML= breville.price.toFixed(2);
+document.getElementById("txtBrevilleQuantity").innerHTML= breville.quantity;
+document.getElementById("txtBrevilleTotalValue").innerHTML= breville.totalValue.toFixed(2);
+document.getElementById("txtDeLonghiId").innerHTML=deLonghi.id;
+document.getElementById("txtDeLonghiDescription").innerHTML=deLonghi.description;
+document.getElementById("txtDeLonghiPrice").innerHTML=deLonghi.price.toFixed(2);
+document.getElementById("txtDeLonghiQuantity").innerHTML=deLonghi.quantity;
+document.getElementById("txtDeLonghiTotalValue").innerHTML=deLonghi.totalValue.toFixed(2);
+document.getElementById("txtCalphalonId").innerHTML=calphalon.id;
+document.getElementById("txtCalphalonDescription").innerHTML=calphalon.description;
+document.getElementById("txtCalphalonPrice").innerHTML=calphalon.price.toFixed(2);
+document.getElementById("txtCalphalonQuantity").innerHTML=calphalon.quantity;
+document.getElementById("txtCalphalonTotalValue").innerHTML=calphalon.totalValue.toFixed(2);
+document.getElementById("txtMrCoffeeId").innerHTML=mrCoffee.id;
+document.getElementById("txtMrCoffeeDescription").innerHTML=mrCoffee.description;
+document.getElementById("txtMrCoffeePrice").innerHTML=mrCoffee.price.toFixed(2);
+document.getElementById("txtMrCoffeeQuantity").innerHTML=mrCoffee.quantity;
+document.getElementById("txtMrCoffeeTotalValue").innerHTML=mrCoffee.totalValue.toFixed(2);
+document.getElementById("txtSincreativeId").innerHTML=sincreative.id;
+document.getElementById("txtSincreativeDescription").innerHTML=sincreative.description;
+document.getElementById("txtSincreativePrice").innerHTML=sincreative.price.toFixed(2);
+document.getElementById("txtSincreativeQuantity").innerHTML=sincreative.quantity;
+document.getElementById("txtSincreativeTotalValue").innerHTML=sincreative.totalValue.toFixed(2);
+
+// Binding Services to Services Table
+document.getElementById("txtServiceId").innerHTML= "Service ID";
+document.getElementById("txtServiceDescription").innerHTML= "Description";
+document.getElementById("txtServiceRate").innerHTML= "Hourly Rate";
+document.getElementById("txtServiceMin").innerHTML= "Minimum Billable Hours";
+document.getElementById("txtRoastingClassId").innerHTML= roasting.id;
+document.getElementById("txtRoastingClassDescription").innerHTML= roasting.description;
+document.getElementById("txtRoastingClassRate").innerHTML= roasting.hourlyRate;
+document.getElementById("txtRoastingClassMin").innerHTML= roasting.min;
+document.getElementById("txtBaristaTrainingId").innerHTML= training.id;
+document.getElementById("txtBaristaTrainingDescription").innerHTML= training.description;
+document.getElementById("txtBaristaTrainingRate").innerHTML= training.hourlyRate; 
+document.getElementById("txtBaristaTrainingMin").innerHTML= training.min;
+document.getElementById("txtOwnershipId").innerHTML= ownership.id;
+document.getElementById("txtOwnershipDescription").innerHTML= ownership.description;
+document.getElementById("txtOwnershipRate").innerHTML= ownership.hourlyRate;
+document.getElementById("txtOwnershipMin").innerHTML= ownership.min;
+
+// Binding Employees to Employees Table
+document.getElementById("txtEmployeeId").innerHTML= "Employee Id";
+document.getElementById("txtEmployeeLastName").innerHTML= "Last Name";
+document.getElementById("txtEmployeeFirstName").innerHTML= "First Name";
+document.getElementById("txtEmployeeSalary").innerHTML= "Salary";
+document.getElementById("txtKyleId").innerHTML= kyle.id;
+document.getElementById("txtKyleLastName").innerHTML= kyle.lastName;
+document.getElementById("txtKyleFirstName").innerHTML= kyle.firstName;
+document.getElementById("txtKyleSalary").innerHTML= kyle.salary;
+document.getElementById("txtColeId").innerHTML= cole.id;
+document.getElementById("txtColeLastName").innerHTML= cole.lastName;
+document.getElementById("txtColeFirstName").innerHTML= cole.firstName;
+document.getElementById("txtColeSalary").innerHTML= cole.salary;
+document.getElementById("txtDamanthaId").innerHTML= damantha.id;
+document.getElementById("txtDamanthaLastName").innerHTML= damantha.lastName;
+document.getElementById("txtDamanthaFirstName").innerHTML= damantha.firstName;
+document.getElementById("txtDamanthaSalary").innerHTML= damantha.salary;
+document.getElementById("txtAndreaId").innerHTML= andrea.id;
+document.getElementById("txtAndreaLastName").innerHTML= andrea.lastName;
+document.getElementById("txtAndreaFirstName").innerHTML= andrea.firstName;
+document.getElementById("txtAndreaSalary").innerHTML= andrea.salary;
+document.getElementById("txtMorganId").innerHTML= morgan.id;
+document.getElementById("txtMorganLastName").innerHTML= morgan.lastName;
+document.getElementById("txtMorganFirstName").innerHTML= morgan.firstName;
+document.getElementById("txtMorganSalary").innerHTML= morgan.salary;
+
+function listingDisplay() {
+    switch (choice) {
+        case choice === "products": // Displays Products Table
+              product.style.display = "block";
+              service.style.display = "none";
+              employee.style.display = "none";
+              break;
+
+        
+        case choice === "services":    // Displays Services Table   
+              product.style.display = "none";
+              service.style.display = "block";
+              employee.style.display = "none";
+              break;
+
+           
+
+        case choice === "employees": // Displays Employees Table
+              product.style.display = "none";
+              service.style.display = "none";
+              employee.style.display = "block";
+              break;
+
+             
+
+        default: // Hides All Tables
+            product.style.display = "none";
+            service.style.display = "none";
+            employee.style.display = "none";
+            break;
+
+    }
+ 
+}
+
+
+
+</script>
+
+</body>
+</html>
+
