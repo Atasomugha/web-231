@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<!--
+    Title: asomugha-alphabet-game.html
+    Author: Professor Krasso
+    Date: 9 December 2022
+    Modified By: Anachebe Asomugha
+    Description: HTML and JavaScript code for WEB 231 Assignment 8.2
+                 Alphabet Game
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <!--CSS Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="asomugha-alphabet-game.css">
+    <link rel="stylesheet" type="text/css" href="../global.css">
+        <!--Font Family-->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+
+    <title>WEB 231 – Enterprise JavaScript I</title>
+</head>
+<body>
+    
+    <header>
+        <h1 class="app-header">Welcome to the Alphabet Game!</h1>
+    </header>
+<!--This is the card that houses the input field-->
+<div id="container">
+    <div id="inputCard">
+        <div class="card">
+            <div class="card-title">
+                Alphabet Number Form
+            </div>    
+        
+            <div class="card-content">
+                <div class="form">
+                    <div class="form-field">
+                        <label for="txtPosition">Alphabet Letter Position</label>
+                        <input type="number" id="txtPosition" name="txtPosition" class="input">
+                    </div>
+
+                    <div class="form-field">
+                        <button  id="btnFindLetter" onclick="findPosition()" type="submit" class="btn btn-primary full-width">Find Letter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+
+     <!--This anchor returns to the landing page-->   
+     <a class="return-home" id="return" href="../index.html">Return</a> 
+     <br><br>
+         
+     <!--This is the card that displays the letters in alphabetical order-->
+    <div id="lettersCard">     
+        <div class="card">
+            <div class="card-title">
+                Letters in the Alphabet
+            </div>    
+        
+            <div class="card-content">
+                <div class="form">
+                    <div class="form-field">
+                        <output id="lettersList" name="lettersList"></output>
+                    </div>                    
+                </div>
+            </div>        
+        </div>            
+    </div>  
+    <!-- This is the card that displays the letter that is at the user-entered position-->
+    <div id="resultsCard">     
+        <div class="card">
+            <div class="card-title">
+               Results
+            </div>    
+        
+            <div class="card-content">
+                <div class="form">
+                    <div class="form-field">
+                        <output id="letterPosition" name="letterPosition"></output>
+                    </div>                    
+                </div>
+            </div>        
+        </div>            
+    </div>    
+
+                                                                                           
+</div> 
+
+<script>
+    // Establishes the array containing the alphabet
+const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+    
+    // Creates string of letters in alphabetical order to appear on "Letters in the Alphabet" card
+    let alphabetOutput = ""; 
+    for (let x in alphabet) {
+  alphabetOutput += alphabet[x] + ", ";
+}
+
+// Outputs the letters in order to the "Letters in the Alphabet" card, eschewing the trailing comma
+document.getElementById("lettersList").innerHTML = alphabetOutput.slice(0, -2); 
+
+// This is the event listener for the "Find Letter" button
+document.getElementById("btnSubmit").onclick; 
+
+    function findPosition() {
+        
+        // Gets value of the number entered by the user
+        let pos = document.getElementById("txtPosition").value; 
+        
+        // Establishes variable to display the letter's position in the alphabet, rather than in the array index
+        let letter = alphabet[pos - 1]; 
+        
+
+        if (letter == undefined) { // Compares variable "letter" to undefined to determine result message
+        document.getElementById("letterPosition").innerHTML = "There are not " + pos + " letters in the alphabet";    
+        
+    }   else { // Displays letter at user-entered position if number matches a potential alphabet position
+        document.getElementById("letterPosition").innerHTML = letter + " is at position " + pos + " in the alphabet";
+
+    }
+}
+</script>
+
+</body>
+</html>
+ 

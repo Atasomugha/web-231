@@ -1,17 +1,17 @@
 /*
-Title: asomugha-number-game.css
+Title: asomugha-alphabet-game.css
     Author: Professor Krasso
-    Date: 10 November 2022
+    Date: 9 December 2022
     Modified By: Anachebe Asomugha
-    Description: CSS Styling for WEB 231 Assignment 4.2
-                 Number Guessing Game
+    Description: CSS Styling for WEB 231 Assignment 8.2
+                 Alphabet Game
 */
 
-/*The font family for the assignment is here*/
+/* The font family for the assignment */
 body {
     font-family: 'Oswald', Verdana, Arial, sans-serif;
 }
-/*The container div's padding is here*/
+/* The container div's padding */
 #container {
     padding: 10px;
 }
@@ -21,13 +21,18 @@ body {
     font-weight: 400;
 }
 
-/*This is the font size styling for the game results*/
+/* This is the font size styling for outputs*/
 output {
     font-size: 28px;
 }
 
-/*This is where the cards' sizes and margins were set to be specific to this assignment*/
+/* This is where the cards' sizes and margins were set */
 #inputCard {
+    width: 600px;
+    margin: 3% auto;  
+}
+
+#lettersCard {
     width: 600px;
     margin: 3% auto;  
 }
@@ -38,8 +43,8 @@ output {
     text-align: center;
 }
 
-/*This is the border styling for the "Submit" button*/
-#btnSubmit {
+/*This is the border styling for the "Find Letter" button*/
+#btnFindLetter {
     border: 2px solid black;
     border-radius: 5px;
 }
