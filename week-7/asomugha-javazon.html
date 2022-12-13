@@ -38,9 +38,9 @@
 
                         <select name="listing" id="listing" class="drop-down-menu"> <!-- Drop down menu for selection of table -->
                             <option  value="select">--Select--</option>
-                            <option  value="products">Products</option>
-                            <option  value="services">Services</option>
-                            <option  value="employees">Employees</option>
+                            <option  value="productsChart">Products</option>
+                            <option  value="servicesChart">Services</option>
+                            <option  value="employeesChart">Employees</option>
                           </select>
    
                     </div>
@@ -52,12 +52,15 @@
                 </div>
             </div>
         </div>
-         <!--This anchor returns to the landing page-->   
-                        <a class="return-home" id="return" href="../index.html">Return</a>       
+                
     </div>   
+
+    <!--This anchor returns to the landing page-->   
+    <a class="return-home" id="return" href="../index.html">Return</a>
+    <br><br>
     
      <!--This is the card that displays the products table-->
-    <div id="product">     
+    <div id="products-div">     
         <div class="card">    
             <div class="card-title">
                     Javazon Products
@@ -98,7 +101,7 @@
 
                     <tr> <!-- Mr. Coffee Row -->
                         <td id="txtMrCoffeeId"></td>
-                        <td id="txtMrCoffeeDecription"></td>
+                        <td id="txtMrCoffeeDescription"></td>
                         <td id="txtMrCoffeePrice"></td>
                         <td id="txtMrCoffeeQuantity"></td>
                         <td id="txtMrCoffeeTotalValue"></td>
@@ -118,7 +121,7 @@
     
      <!--This is the card that displays the services table-->
 
-    <div id="service">     
+    <div id="services-div">     
         <div class="card">    
             <div class="card-title">
                    Javazon Services
@@ -159,7 +162,7 @@
 
      <!--This is the card that displays the employees table-->
 
-    <div id="employee">     
+    <div id="employees-div">     
         <div class="card">    
             <div class="card-title">
                    Javazon Employees
@@ -227,7 +230,7 @@ class Products {
 }
 
 class Services {
-    constructor(id, description, hourlyRate, hours) {
+    constructor(id, description, hourlyRate, min) {
       this.id = id;
       this.description = description;
       this.hourlyRate = hourlyRate;
@@ -265,22 +268,54 @@ const andrea = new Employees (2000, "Coffin", "Andrea", 16.96);
 const morgan = new Employees (2100, "Fork", "Morgan", 22.25);
 
 // Variable Assignment for Table divs
-const product = document.getElementById("product");
-const service = document.getElementById("service");
-const employee = document.getElementById("employee");
+const products = document.getElementById("products-div");
+const services = document.getElementById("services-div");
+const employees = document.getElementById("employees-div");
 
 // Hides All Tables
-product.style.display = "none";
-service.style.display = "none";
-employee.style.display = "none";
+products.style.display = "none";
+services.style.display = "none";
+employees.style.display = "none";
  
-
-
 document.getElementById('btnDisplayListing').onclick; // Event listener for "Display Listing" button click
 
 
-
+function listingDisplay() {
 const choice = document.getElementById('listing').value; // Gets the value of the selected option from the <select> tag
+
+    switch (choice) {
+        case ("productsChart"): 
+              products.style.display = "block";
+              services.style.display = "none";
+              employees.style.display = "none";
+              break;
+
+        
+        case ("servicesChart"):      
+              products.style.display = "none";
+              services.style.display = "block";
+              employees.style.display = "none";
+              break;
+
+           
+
+        case ("employeesChart"):
+              products.style.display = "none";
+              services.style.display = "none";
+              employees.style.display = "block";
+              break;
+
+             
+
+        default:
+            products.style.display = "none";
+            services.style.display = "none";
+            employees.style.display = "none";
+            break;
+
+    }
+ 
+}
 
 // Binding Products to Products Table    
 document.getElementById("txtProductId").innerHTML= "Product ID";
@@ -358,35 +393,6 @@ document.getElementById("txtMorganLastName").innerHTML= morgan.lastName;
 document.getElementById("txtMorganFirstName").innerHTML= morgan.firstName;
 document.getElementById("txtMorganSalary").innerHTML= morgan.salary;
 
-function listingDisplay() {
-    switch (choice) {
-        case "products": // Displays Products Table
-              product.style.display = "block";
-              service.style.display = "none";
-              employee.style.display = "none";
-              break;
-
-        case "services": // Displays Services Table   
-              product.style.display = "none";
-              service.style.display = "block";
-              employee.style.display = "none";
-              break;
-
-        case "employees": // Displays Employees Table
-              product.style.display = "none";
-              service.style.display = "none";
-              employee.style.display = "block";
-              break;
-
-        default: // Hides All Tables
-            product.style.display = "none";
-            service.style.display = "none";
-            employee.style.display = "none";
-            break;
-
-    }
- 
-}
 
 
 

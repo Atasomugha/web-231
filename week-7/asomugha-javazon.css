@@ -11,10 +11,12 @@ Title: asomugha-javazon.css
 body {
     font-family: 'Oswald', Verdana, Arial, sans-serif;
 }
+
 /*The container div's padding is here*/
 #container {
     padding: 10px;
 }
+
 /* The heading text is styled here*/
 .app-header {
     text-align: center;
@@ -45,7 +47,7 @@ output {
  }
 
 /* Styling for the divs containing the tables and the information inside*/
-#product, #service, #employee {
+#products-div, #services-div, #employees-div {
     width: 600px;
     margin: 3% auto;
     text-align: center;
