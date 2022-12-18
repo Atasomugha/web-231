@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!--
+    Title: asomugha-card-game.html
+    Author: Professor Krasso
+    Date: 18 December 2022
+    Modified By: Anachebe Asomugha
+    Description: HTML and JavaScript code for WEB 231 Assignment 9.2
+                 Final: Card Game
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <!--CSS Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="asomugha-card-game.css">
+    <link rel="stylesheet" type="text/css" href="../global.css">
+        <!--Font Family-->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <!--Card Icons-->
+    <link  href="https://cdn.jsdelivr.net/npm/@mdi/font@6.9.96/css/materialdesignicons.min.css
+    " rel="stylesheet">
+
+
+    <title>WEB 231 – Enterprise JavaScript I</title>
+</head>
+<body>
+    
+    <header>
+        <h1 class="app-header">Welcome to the Card Game!</h1>
+    </header>
+<!--This is the card that houses the "Deal Cards" button-->
+<div id="container">
+    
+    <div id="inputCard">
+        <div class="card">
+            <div class="card-title">
+                Card Dealer
+            </div>    
+        
+            <div class="card-content">
+                <div class="form">        
+                    <div class="form-field">
+                        <button  id="btnDealCards"  type="submit" 
+                        class="btn btn-primary full-width">Deal Cards</button> <!--Button that deals the randomized cards-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+
+     <!--This anchor returns to the landing page-->   
+     <a class="return-home" id="return" href="../index.html">Return</a> 
+     <br><br>
+    
+   
+     <!--This is the card that displays the shuffled cards-->
+    <div id="resultsCard">     
+        <div class="card">
+            <div class="card-title">Shuffled Cards</div>           
+            <div class="player-card"> 
+                <div class="card-content">
+                    <div id="player-card-container"></div>                    
+                </div>
+            </div>        
+        </div>            
+    </div>    
+
+                                                                                           
+</div> 
+
+<script>
+
+class Card {         // Card class
+    constructor(face, suit) {
+        this.face = face;
+        this.suit = suit;
+    } 
+}
+
+class Dealer {       // Dealer class containing arrays
+      CARD_COUNT = 52;
+      cards = [];
+      faces = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+      suits = ["Hearts", "Diamonds", "Clubs", "Spades",]; 
+
+      constructor(){ // Dealer constructor; calls the getDeckOfCards() function to generate a new deck
+        this.getDeckOfCards(); 
+      }              // End constructor
+    
+    getDeckOfCards () { // Creates the deck of cards
+        for (let count = 0; count < this.CARD_COUNT; count++) {
+            this.cards[count] = new Card(this.faces[count % 13], 
+            this.suits[Math.floor(count / 13)]);
+        }
+    }
+
+    shuffle() { //Randomizes the shuffle of the cards
+        for (let cardOne = 0; cardOne<this.CARD_COUNT; cardOne++) {
+            let cardTwo = Math.floor(Math.random() * this.CARD_COUNT); 
+            let tempCard = this.cards[cardOne];  
+            this.cards[cardOne] = this.cards[cardTwo];
+            this.cards[cardTwo] = tempCard;     
+        }
+    }   
+}
+
+function buildPlayingCard (card, suitIcon, faceColor, suitColor) { // Function that builds the layout of the cards in CSS
+    return `<div class="card player-card"><div class="card-title" style="text-align: 
+        left; font-size: 20px; padding-left: 10px; color: ${faceColor}">${card.face}
+        </div><div class="card-content" style="font-size: 28px; padding-bottom: 25px;">
+        <span class="${suitIcon}" style="color: ${suitColor}"></span></div></div>`
+}
+
+document.getElementById("btnDealCards").onclick = function() { // Onclick event registration for "Deal Cards" button
+
+    let dealer = new Dealer(); // Create a new Dealer object
+
+    dealer.shuffle(); // Calls function to shuffle the cards
+
+    let cardOutputWithIcon = ""; //String variable to hold the output
+
+        for(const card of dealer.cards) { // Builds the cards (suit and and color)
+            switch (card.suit) {
+                case "Hearts":
+                    cardOutputWithIcon += buildPlayingCard(card, "mdi mdi-heart", "red", "red");
+                    break;
+
+                case "Diamonds":    
+                    cardOutputWithIcon += buildPlayingCard(card, "mdi mdi-diamond", "red", "red");
+                    break;
+                
+                case "Clubs":    
+                    cardOutputWithIcon += buildPlayingCard(card, "mdi mdi-cards-club", "black", "black");
+                    break;
+
+                case "Spades":    
+                    cardOutputWithIcon += buildPlayingCard(card, "mdi mdi-cards-spade", "black", "black");
+                    break;   
+            }
+        }
+    document.getElementById("player-card-container").innerHTML = cardOutputWithIcon    // Prints cards to the player-card-container div
+}
+ 
+</script>
+
+</body>
+</html>
